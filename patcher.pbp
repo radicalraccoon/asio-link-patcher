@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 6.12 LTS (Windows - x64)">
+  <section name="config">
+    <options closefiles="1" openmode="0" name="asio link patcher"/>
+  </section>
+  <section name="data">
+    <explorer view="" pattern="0"/>
+    <log show="1"/>
+    <lastopen date="2024-11-03 21:32" user="Emrys" host="ELEVEN"/>
+  </section>
+  <section name="files">
+    <file name="canvasbutton.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="1" panelstate="+"/>
+      <fingerprint md5="3bcd2824f7987f67067040f638b35370"/>
+    </file>
+    <file name="constants.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="2" panelstate="+"/>
+      <fingerprint md5="2880b09c6a5efde880e96957ae148f7e"/>
+    </file>
+    <file name="drawing.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="3" panelstate="+"/>
+      <fingerprint md5="c7fc10183482bb1902e1cc15c619b293"/>
+    </file>
+    <file name="main.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="4" panelstate="+"/>
+      <fingerprint md5="23029f290a9fd8e97fb51d6ddae11787"/>
+    </file>
+    <file name="typeface.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="5" panelstate="+"/>
+      <fingerprint md5="916762aba163e08dfc15cb50744e3710"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="Default Target" enabled="1" default="1">
+      <inputfile value="main.pb"/>
+      <outputfile value="ASIO Link Pro Patcher.exe"/>
+      <compiler version="PureBasic 6.10 LTS (Windows - x64)"/>
+      <executable value="ASIO Link Pro Patcher.dbf.exe"/>
+      <options xpskin="1" admin="1" optimizer="0"/>
+      <icon enable="1">resources\raccoon.ico</icon>
+    </target>
+  </section>
+</project>
