@@ -8,274 +8,279 @@ EndStructure
 Global NewMap Font.BitmapCharacter()
 
 Procedure InitFontIndex()
-  Font("a")\X = 0
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("b")\X = 8
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("c")\X = 16
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("d")\X = 24
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("e")\X = 32
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("f")\X = 40
-  Font()\Y = 0
-  Font()\W = 6
-  Font()\H = 11
-  
-  Font("g")\X = 48
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("h")\X = 56
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("i")\X = 64
-  Font()\Y = 0
-  Font()\W = 5
-  Font()\H = 11
-  
-  Font("j")\X = 72
-  Font()\Y = 0
-  Font()\W = 6
-  Font()\H = 11
-  
-  Font("k")\X = 80
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("l")\X = 88
-  Font()\Y = 0
-  Font()\W = 5
-  Font()\H = 11
-  
-  Font("m")\X = 96
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("n")\X = 104
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("o")\X = 112
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("p")\X = 120
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("q")\X = 128
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("r")\X = 136
-  Font()\Y = 0
-  Font()\W = 6
-  Font()\H = 11
-  
-  Font("s")\X = 144
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("t")\X = 152
-  Font()\Y = 0
-  Font()\W = 6
-  Font()\H = 11
-  
-  Font("u")\X = 160
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("v")\X = 168
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("w")\X = 176
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("x")\X = 184
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("y")\X = 192
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("z")\X = 200
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("0")\X = 216
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("1")\X = 224
-  Font()\Y = 0
-  Font()\W = 6
-  Font()\H = 11
-  
-  Font("2")\X = 232
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("3")\X = 240
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("4")\X = 248
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("5")\X = 256
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("6")\X = 264
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("7")\X = 272
-  Font()\Y = 0
-  Font()\W = 7
-  Font()\H = 11
-  
-  Font("8")\X = 280
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("9")\X = 288
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("[")\X = 296
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("]")\X = 304
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font(":")\X = 312
+  Font("null")\X = 0
   Font()\Y = 0
   Font()\W = 4
   Font()\H = 11
   
-  Font("!")\X = 320
-  Font()\Y = 0
-  Font()\W = 5
-  Font()\H = 11
-  
-  Font("?")\X = 328
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font(".")\X = 336
-  Font()\Y = 0
-  Font()\W = 5
-  Font()\H = 11
-  
-  Font(",")\X = 344
-  Font()\Y = 0
-  Font()\W = 5
-  Font()\H = 11
-  
-  Font("-")\X = 352
+  Font("a")\X = 0
   Font()\Y = 0
   Font()\W = 7
   Font()\H = 11
   
-  Font("(")\X = 360
+  Font("b")\X = 8
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("c")\X = 16
   Font()\Y = 0
   Font()\W = 6
   Font()\H = 11
   
-  Font(")")\X = 368
+  Font("d")\X = 24
   Font()\Y = 0
-  Font()\W = 6
+  Font()\W = 7
   Font()\H = 11
   
-  Font("●")\X = 376
+  Font("e")\X = 32
   Font()\Y = 0
-  Font()\W = 6
+  Font()\W = 7
   Font()\H = 11
   
-  Font("♥")\X = 384
-  Font()\Y = 0
-  Font()\W = 8
-  Font()\H = 11
-  
-  Font("'")\X = 392
+  Font("f")\X = 40
   Font()\Y = 0
   Font()\W = 5
   Font()\H = 11
   
-  Font(#DQUOTE$)\X = 400
+  Font("g")\X = 48
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("h")\X = 56
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("i")\X = 64
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font("j")\X = 72
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("k")\X = 80
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("l")\X = 88
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font("m")\X = 96
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("n")\X = 104
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("o")\X = 112
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("p")\X = 120
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("q")\X = 128
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("r")\X = 136
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("s")\X = 144
   Font()\Y = 0
   Font()\W = 6
+  Font()\H = 11
+  
+  Font("t")\X = 152
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("u")\X = 160
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("v")\X = 168
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("w")\X = 176
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("x")\X = 184
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("y")\X = 192
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("z")\X = 200
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("0")\X = 216
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("1")\X = 224
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("2")\X = 232
+  Font()\Y = 0
+  Font()\W = 6
+  Font()\H = 11
+  
+  Font("3")\X = 240
+  Font()\Y = 0
+  Font()\W = 6
+  Font()\H = 11
+  
+  Font("4")\X = 248
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("5")\X = 256
+  Font()\Y = 0
+  Font()\W = 6
+  Font()\H = 11
+  
+  Font("6")\X = 264
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("7")\X = 272
+  Font()\Y = 0
+  Font()\W = 6
+  Font()\H = 11
+  
+  Font("8")\X = 280
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("9")\X = 288
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("[")\X = 296
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("]")\X = 304
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font(":")\X = 312
+  Font()\Y = 0
+  Font()\W = 3
+  Font()\H = 11
+  
+  Font("!")\X = 320
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font("?")\X = 328
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font(".")\X = 336
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font(",")\X = 344
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font("-")\X = 352
+  Font()\Y = 0
+  Font()\W = 6
+  Font()\H = 11
+  
+  Font("(")\X = 360
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font(")")\X = 368
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("●")\X = 376
+  Font()\Y = 0
+  Font()\W = 5
+  Font()\H = 11
+  
+  Font("♥")\X = 384
+  Font()\Y = 0
+  Font()\W = 7
+  Font()\H = 11
+  
+  Font("'")\X = 392
+  Font()\Y = 0
+  Font()\W = 4
+  Font()\H = 11
+  
+  Font(#DQUOTE$)\X = 400
+  Font()\Y = 0
+  Font()\W = 5
   Font()\H = 11
   
   Font("=")\X = 408
   Font()\Y = 0
-  Font()\W = 6
+  Font()\W = 5
   Font()\H = 11
   
   Font("<")\X = 416
   Font()\Y = 0
-  Font()\W = 8
+  Font()\W = 7
   Font()\H = 11
   
   Font("~")\X = 424
   Font()\Y = 0
-  Font()\W = 8
+  Font()\W = 7
   Font()\H = 11
   
   Font(">")\X = 432
   Font()\Y = 0
-  Font()\W = 8
+  Font()\W = 7
   Font()\H = 11
 EndProcedure
 
@@ -304,7 +309,8 @@ DataSection
     Data.b $57,$0B,$B7
   FontBitmapEnd:
 EndDataSection
-; IDE Options = PureBasic 5.61 (Windows - x86)
-; CursorPosition = 8
-; Folding = +
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 282
+; FirstLine = 213
+; Folding = -
 ; EnableXP

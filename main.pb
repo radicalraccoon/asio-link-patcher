@@ -11,6 +11,7 @@ XIncludeFile "canvasbutton.pb"
 XIncludeFile "drawing.pb"
 
 Global DefaultPath.s
+Global PatchCompleted = #False
 
 Structure MessageStruct
   Title.s
@@ -146,45 +147,33 @@ EndProcedure
 Procedure PatchFile(TargetFile.s, Architecture.i)
   Protected Truncate, Length
   
-  ; Create a backup...
   If FileExists(TargetFile + ".bak")
     DeleteFile(TargetFile + ".bak")
   EndIf
   CopyFile(TargetFile, TargetFile + ".bak")
   
-  ; Apply patches...
   If Architecture = 64
-    If OpenFile(0, TargetFile, #PB_File_SharedRead|#PB_File_SharedWrite)
-      *Pointer.MemoryPointer = ?PatchData64
-      Truncate = *Pointer\b                : *Pointer + SizeOf(Byte)
-      While *Pointer <> (?PatchData64End)
-        FileSeek(0, *Pointer\l)            : *Pointer + SizeOf(Long) ; Jump to the offset (read from patch data) in the target file
-        Length = *Pointer\l                : *Pointer + SizeOf(Long) ; Read length of patch from patch data
-        For i=1 To Length
-          WriteByte(0, *Pointer\b)         : *Pointer + SizeOf(Byte) ; Write patches to the target file
-        Next
-      Wend
-      CloseFile(0)
-      VerifyPatch(TargetFile, Architecture)
-    Else
-      ThreadedMessageRequester("Failed", "Could not open the file for patching. A team of penguins has been dispatched to your location.")
-    EndIf
+    *PatchStart = ?PatchData64
+    *PatchEnd   = ?PatchData64End
   Else
-    If OpenFile(0, TargetFile, #PB_File_SharedRead|#PB_File_SharedWrite)
-      *Pointer.MemoryPointer = ?PatchData32
-      Truncate = *Pointer\b                : *Pointer + SizeOf(Byte)
-      While *Pointer <> (?PatchData32End)
-        FileSeek(0, *Pointer\l)            : *Pointer + SizeOf(Long) ; Jump to the offset (read from patch data) in the target file
-        Offset = *Pointer\l                : *Pointer + SizeOf(Long) ; Read length of patch from patch data
-        For i=1 To Offset
-          WriteByte(0, *Pointer\b)         : *Pointer + SizeOf(Byte) ; Write patches to the target file
-        Next
-      Wend
-      CloseFile(0)
-      VerifyPatch(TargetFile, Architecture)
-    Else
-      ThreadedMessageRequester("Failed", "Could not open the file for patching. A team of penguins has been dispatched to your location.")
-    EndIf
+    *PatchStart = ?PatchData32
+    *PatchEnd   = ?PatchData32End
+  EndIf
+  
+  If OpenFile(0, TargetFile, #PB_File_SharedRead|#PB_File_SharedWrite)
+    *Pointer.MemoryPointer = *PatchStart
+    Truncate = *Pointer\b                : *Pointer + SizeOf(Byte)
+    While *Pointer <> (*PatchEnd)
+      FileSeek(0, *Pointer\l)            : *Pointer + SizeOf(Long)
+      Length = *Pointer\l                : *Pointer + SizeOf(Long)
+      For i=1 To Length
+        WriteByte(0, *Pointer\b)         : *Pointer + SizeOf(Byte)
+      Next
+    Wend
+    CloseFile(0)
+    VerifyPatch(TargetFile, Architecture)
+  Else
+    ThreadedMessageRequester("Failed", "Could not open the file for patching. A team of penguins has been dispatched to your location.")
   EndIf
 EndProcedure
 
@@ -221,47 +210,31 @@ Procedure IsValidFile(TargetFile.s, Architecture.i)
 EndProcedure
 
 Procedure PatchButtonClick()
-  Protected TargetFile.s
+  Protected TargetFile.s, Architecture.i
   
   If MyButton::GetProperty(#Option64, MyButton::#Prop_Checked)
+    Architecture = 64
     TargetFile = DefaultPath + "x64\asiolink.dll"
-    If FileExists(TargetFile)
-      If IsValidFile(TargetFile, 64)
-        PatchFile(TargetFile, 64)
-      EndIf
-    Else
-      TargetFile = GetCurrentDirectory() + "asiolink.dll"
-      If FileExists(TargetFile)
-        If IsValidFile(TargetFile, 64)
-          PatchFile(TargetFile, 64)
-        EndIf
-      Else
-        TargetFile = OpenFileRequester("Please find and open your 64-bit asiolink DLL file...", "asiolink.dll", "ASIO Link Pro DLL | asiolink.dll", 0)
-        If TargetFile <> #Empty$
-          If IsValidFile(TargetFile, 64)
-            PatchFile(TargetFile, 64)
-          EndIf
-        EndIf
-      EndIf
+  Else
+    Architecture = 32
+    TargetFile = DefaultPath + "asiolink.dll"
+  EndIf
+  
+  If FileExists(TargetFile)
+    If IsValidFile(TargetFile, Architecture)
+      PatchFile(TargetFile, Architecture)
     EndIf
   Else
-    TargetFile = DefaultPath + "asiolink.dll"
+    TargetFile = GetCurrentDirectory() + "asiolink.dll"
     If FileExists(TargetFile)
-      If IsValidFile(TargetFile, 32)
-        PatchFile(TargetFile, 32)
+      If IsValidFile(TargetFile, Architecture)
+        PatchFile(TargetFile, Architecture)
       EndIf
     Else
-      TargetFile = GetCurrentDirectory() + "asiolink.dll"
-      If FileExists(TargetFile)
-        If IsValidFile(TargetFile, 32)
-          PatchFile(TargetFile, 32)
-        EndIf
-      Else
-        TargetFile = OpenFileRequester("Please find and open your 32-bit asiolink DLL file...", "asiolink.dll", "ASIO Link Pro DLL | asiolink.dll", 0)
-        If TargetFile <> #Empty$
-          If IsValidFile(TargetFile, 32)
-            PatchFile(TargetFile, 32)
-          EndIf
+      TargetFile = OpenFileRequester("Please find and open your " + Str(Architecture) + "-bit asiolink DLL file...", "asiolink.dll", "ASIO Link Pro DLL | asiolink.dll", 0)
+      If TargetFile <> #Empty$
+        If IsValidFile(TargetFile, Architecture)
+          PatchFile(TargetFile, Architecture)
         EndIf
       EndIf
     EndIf
@@ -344,7 +317,6 @@ Procedure InitResources()
   UncompressMemory(?Music, ?MusicEnd - ?Music, *Buffer, 47213, #PB_PackerPlugin_BriefLZ)
   If CatchMusic(#Music, *Buffer, 47213) <> #Null
     FreeMemory(*Buffer)
-    MusicVolume(#Music, 25)
     PlayMusic(#Music)
   Else
     FreeMemory(*Buffer)
@@ -528,7 +500,7 @@ DataSection
   PatchData32End:
 EndDataSection
 ; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 351
-; FirstLine = 64
-; Folding = AA9
+; CursorPosition = 318
+; FirstLine = 59
+; Folding = AA1
 ; EnableXP
